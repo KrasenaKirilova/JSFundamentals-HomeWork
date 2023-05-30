@@ -1,29 +1,17 @@
 function solve(firstArray, secondArray) {
+  let newArray = [];
+  let currentElement = "";
+  let concatNum = "";
 
-    let sumArray = 0;
-    let sumElement = '';
-    let concatNum = '';
-   
-    for (let i = 0; i < firstArray.length; i ++) {
-        if (i %2 === 0) {
-            sumElement += i;
-            console.log(sumElement);
-        } else {
-            concatNum = i + '';
-        }
+  for (let i = 0; i < firstArray.length; i++) {
+    if (i % 2 === 0) {
+      newArray[i] = Number(firstArray[i]) + Number(secondArray[i]);
+    } else {
+      newArray[i] = firstArray[i] + secondArray[i];
     }
+  }
 
-    for(let j = 0; j < secondArray.length; j ++ ) {
-        if (j %2 === 0) {
-            sumElement += j;
-        } else {
-            concatNum = j + '';
-        }
-    }
-            
-    
-    }
+  console.log(newArray.join(" - "));
+}
 
-
-solve(['5', '15', '23', '56', '35'],
-['17', '22', '87', '36', '11']);
+solve(["5", "15", "23", "56", "35"], ["17", "22", "87", "36", "11"]);
