@@ -26,7 +26,7 @@ function maxSequence(arr) {
     }
 }
 
-console.log(`${(currentDigit + ' ').repeat(maxSequence)}`);
+console.log(`${(maxSequenceDigit + ' ').repeat(maxSequence)}`);
 
 
 }
