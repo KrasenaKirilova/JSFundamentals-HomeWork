@@ -1,11 +1,10 @@
 function muOnline(input) {
 
     let rooms = input.split('|');
-    let roomsLength = input.length;
     let health = 100;
     let bitcoins = 0;
 
-    for (let i = 0; i < roomsLength; i++) {
+    for (let i = 0; i < rooms.length; i++) {
         let room = rooms[i];
         let action = room.split(' ');
         let command = action[0];
