@@ -25,8 +25,11 @@ function manOWar(input) {
             case "Fire": 
             damage = Number(tokens[2]);
                 if (indexItem >= 0 && indexItem < warship.length) {
-                // tokens[indexItem] -= damage;
-                // console.log(tokens[indexItem]);
+                    warship[index] -= damage;
+                    warship.splice(warship[index], 1);
+                    health -= damage;
+                   console.log(warship);
+                   console.log(health);
                     if (health <= 0) {
                         console.log('You won! The enemy ship has sunken');
                     }
@@ -37,8 +40,11 @@ function manOWar(input) {
             let startIndex = Number(tokens[1]);
             let endIndex = Number(tokens[2]);
             damage = Number(tokens[3]);
-             if(startIndex >= 0 && endIndex>=0 && startIndex < pirates.length && endIndex < pirates.length) {
-                health = (tokens[startIndex] - damage) + (tokens[endIndex] - damage);
+             if(startIndex >= 0 && endIndex>= 0 && startIndex < pirates.length && endIndex < pirates.length) {
+                pirates[index]
+                
+                // health = (tokens[startIndex] - damage) + (tokens[endIndex] - damage);
+                
              } if (health <= 0) {
                 console.log('You lost! The pirate ship has sunken.');
             }
