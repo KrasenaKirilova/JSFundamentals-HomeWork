@@ -7,11 +7,11 @@ function blackFlags(input) {
     for (let i = 1; i <= days; i++) {
         totalPlunder += dailyPlunder;
 
-         if (days % 3 === 0) {
+         if (i % 3 === 0) {
             totalPlunder += dailyPlunder * 0.5;
          } 
          
-         if(days % 5 === 0) {
+         if(i % 5 === 0) {
             totalPlunder *= 0.7;
          }
          
