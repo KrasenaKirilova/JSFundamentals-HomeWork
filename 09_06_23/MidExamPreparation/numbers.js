@@ -10,44 +10,34 @@ function numbers(input) {
 
     for (let i = 0; i < newArr.length; i++) {
         let currentNum = newArr[i];
-        // let nextNum = newArr[i+1];
-        // console.log(currentNum);
 
-
-
-        if (currentNum > average) {
-            selectedNums.unshift(currentNum);
-            count++;
-
-        } else {
-            count = 0;
+            if (currentNum > average) {
+                selectedNums.unshift(currentNum);
+                count++;
+                } 
+        }
+       
+        if (newArr.length < 5 ) {
+            console.log('No');
         }
 
+        selectedNums.sort((a, b) => a - b);
+        let cuttedNums = selectedNums.slice(-5);
+        cuttedNums.reverse();
+        console.log(cuttedNums.join(' '));
     }
 
-    selectedNums.sort((a, b) => b - a);
-    selectedNums.reverse();
-    let cuttedNums = selectedNums.slice(-5);
 
-    console.log(cuttedNums.join(' '));
+    numbers('10 20 30 40 50');
 
+    console.log('============');
 
-    // console.log(totalSum);
-    // console.log(`Average number = ${average.toFixed(2)}`);
+    numbers('5 2 3 4 -10 30 40 50 20 50 60 60 51');
 
-}
+    console.log('============');
 
+    numbers('1');
 
-numbers('10 20 30 40 50');
+    console.log('============');
 
-console.log('============');
-
-numbers('5 2 3 4 -10 30 40 50 20 50 60 60 51');
-
-console.log('============');
-
-numbers('1');
-
-console.log('============');
-
-numbers('-1 -2 -3 -4 -5 -6');
+    numbers('-1 -2 -3 -4 -5 -6');
