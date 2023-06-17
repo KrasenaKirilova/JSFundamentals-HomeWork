@@ -21,7 +21,7 @@ function numbers(input) {
             console.log('Les than 5 numbers');
         }
 
-        if (newArr.length <= 1){
+        if (newArr.length == 0){
             console.log('No');
         }
 

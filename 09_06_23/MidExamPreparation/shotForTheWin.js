@@ -1,41 +1,33 @@
 function shotForWin(input) {
     let targets = input.shift().split(' ').map(Number);
-    console.log(targets);
     input.pop();
     let shots = input.map(Number);
-    console.log(shots);
-
-
-    for (let i = 0; i < input.length; i++) {
-        let currentIndexOfShot = input[i];
-        let indexOfTarget = currentIndexOfShot;
-        let currentTarget = targets[indexOfTarget];
-           
-
-        if(indexOfTarget > 0 && indexOfTarget < targets.length) {
-
-            
-        
-
-        } else {
-            continue;
-        }
-
-    }
-    
-
-
-    
-
-
+    let shotCount = 0;
    
-        
+    for (let i = 0; i < shots.length; i++) {
+        let currentShot = shots[i];
+        let currentTarget = targets[currentShot];
 
+        if (currentTarget > -1) {
+        targets[currentShot] = -1;
+        shotCount++;
+           
+            for (let j = 0; j < targets.length; j++) {
+               
+                if (targets[j] > -1 ) {
+                    if (targets[j] > currentTarget) {
+                        targets[j] -= currentTarget;     
+                    } else {
+                        targets[j] += currentTarget;
+                    }
+                }  
+            }
+        }
+    }
+    console.log(`Shot targets: ${shotCount} -> ${targets.join(' ')}`);
+}
     
 
-
-
-}
 
 shotForWin(["24 50 36 70",
 
