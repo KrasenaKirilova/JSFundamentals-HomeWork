@@ -17,7 +17,7 @@ function numbers(input) {
                 } 
         }
        
-        if (newArr.length >=2 && newArr.length < 5 ) {
+        if (newArr.length >= 2 && newArr.length < 5 ) {
             console.log('Les than 5 numbers');
         }
 
@@ -41,7 +41,7 @@ function numbers(input) {
     console.log('============');
 
     numbers('1');
-
+  
     console.log('============');
 
     numbers('-1 -2 -3 -4 -5 -6');

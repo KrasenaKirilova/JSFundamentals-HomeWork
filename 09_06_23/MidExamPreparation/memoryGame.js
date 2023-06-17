@@ -16,8 +16,8 @@ function memoryGame(input) {
             command = input.shift();
             continue;
         }
-        let firstItem = sequence[0];
-        let secondItem = sequence[1];
+        let firstItem = sequence[index[0]];
+        let secondItem = sequence[index[1]];
 
         if (firstItem === secondItem) {
             console.log(`Congrats! You have found matching elements - ${firstItem}!`);
