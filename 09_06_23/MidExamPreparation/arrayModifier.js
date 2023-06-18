@@ -1,18 +1,32 @@
 function arrayModifier(input) {
-    let initialArr = input.shift().split(' ').map(Number);
-    let initialArrLength = initialArr.length;
+    let newArr = input.shift().split(' ').map(Number);
+    let inputLength = input.length;
     
-
-    for (let index = 0; index < initialArrLength; index++) {
-        let currentCommand = input[index].split(' ');
-        let command = currentCommand.shift();
-        let firstIndex = Number(currentCommand.shift());
-        let secondIndex = Number(currentCommand.shift());
-            console.log(firstIndex);
-            console.log(secondIndex);
-        }
-       
+    for (let i = 0; i < inputLength; i++){
+    let tokens = input.shift().split(' ');
+    let command = tokens.shift();
+    
+            switch (command) {
+                case "swap": {
+                    let temp = newArr[tokens[0]];
+                    newArr[tokens[0]] = newArr[tokens[1]];
+                    newArr[tokens[1]] = temp;
+                }
+                break;
+                case "multiply": {
+                    let result = newArr[tokens[0]] * newArr[tokens[1]];
+                    newArr[tokens[0]] = result;
+                }
+                break;
+                case "decrease": newArr = newArr.map(x => x - 1); break;
+                
+                case "end": break;
+            }
     }
+    console.log(newArr.join(', '));
+}
+
+
 
 
 
