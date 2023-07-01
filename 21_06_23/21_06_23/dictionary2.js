@@ -1,20 +1,15 @@
-function solve(input) {
-
-    for (const line of input) {
-
-        let text = JSON.parse(line);
-
-        let entries = Object.entries(text);
-
-        entries.sort((a, b) => a[0].localeCompare(b[0]));
-        
-        for (let [term, definition] of entries) {
-
-            console.log(`Term: ${term} => Definition: ${definition}`);
+function solve(jsonArr) {
+    let obj = {};
+    for (const json of jsonArr) {
+        let term = JSON.parse(json);
+        for (const key of Object.keys(term)) {
+            obj[key] = term[key];
         }
-
     }
-
+    const sortedTerms = Object.keys(obj).sort();
+    for (const term of sortedTerms) {
+        console.log(`Term: ${term} => Definition: ${obj[term]}`);
+    }
 }
 
 solve([
