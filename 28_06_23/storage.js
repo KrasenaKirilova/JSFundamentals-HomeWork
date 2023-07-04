@@ -2,18 +2,20 @@ function storage(input) {
     let storage = new Map();
 
     for (const line of input) {
-        let [product, quantity] = line.split(' ');
-        storage[product] = Number(quantity);
+        let tokens = line.split(' ');
+        let product = tokens[0];
+        let quantity = Number(tokens[1]);
+        if (!storage.has(product)) {
+            storage.set(product, +quantity);
+        } else {
+            let currentQuantity = storage.get(product);
+            let newQuantity = currentQuantity + quantity;
+            storage.set(product, newQuantity);
+        }
     }
-    if(!storage.has(product)) {
-        storage.set(product, +quantity);
-    } else {
-        let currentQuantity = storage.get(product);
-        let newQuantity = currentQuantity + quantity;
-        storage.set(product, newQuantity);
-    }
-    for (const [key, value] of storage) {
-        console.log(`${key} -> ${value}`);
+
+    for (const kvp of storage) {
+        console.log(`${kvp[0]} -> ${kvp[1]}`);
     }
 }
 
