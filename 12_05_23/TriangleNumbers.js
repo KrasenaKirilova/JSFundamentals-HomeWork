@@ -1,14 +1,15 @@
 function solve(n) {
     let line = '';
 
-    for (let i=1; i <=n; i++) {
-       
-       //console.log(line);
-        for (let j=2; j <=i; j++){
-            line = "";
-           console.log(line);
+    for (let i = 1; i <= n; i++) {
+
+
+        for (let j = 1; j <= i; j++) {
+            line += `${i} `;
+
         }
+        console.log(line);
+        line = '';
     }
-     
 }
-solve(5)
+solve(9)

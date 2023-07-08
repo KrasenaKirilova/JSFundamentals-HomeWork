@@ -1,39 +1,31 @@
-function bombNumbers(demoArr, bombArr) {
-    let bombNumber = bombArr[0];
-    let power = bombArr[1];
-    let resultArr = [];
-    let demoArrLength = demoArr.length;
-
-    for (let i = 0; i < demoArrLength; i++) {
-        let currentNum = demoArr[i];
-
-        if (currentNum === bombNumber) {
-            let bombIndex = demoArr.indexOf(bombNumber);
-
-            demoArr.splice(bombIndex, power);
-            demoArr.splice(bombIndex - power, power + 1);
+function bombNumbers(numArr, numSpecial){
+    let bombNum = numSpecial[0];
+    let bombPower = numSpecial[1];
+    let resultSum = 0;
+ 
+    for(let i = 0; i < numArr.length; i++){
+        if(numArr[i] === bombNum){
+            let bombIndex = numArr.indexOf(bombNum);
+           
+            numArr.splice(bombIndex, bombPower + 1);
+            numArr.splice(Math.max(bombIndex - bombPower, 0), bombPower);
+            i = Math.max(i - bombPower - 1, -1);
+            
         }
-
     }
-    let sum = 0;
-    for (let j = 0; j < demoArr.length; j++) {
-        sum += demoArr[j];
+    numArr = numArr.filter(x => x !== Number(bombNum));
+ 
+    for(let j = 0; j < numArr.length; j++){
+        resultSum += Number(numArr[j]);
     }
-    console.log(sum);
+    console.log(resultSum);
 }
 
 
+bombNumbers([1, 2, 2, 4, 2, 2, 2, 9],[4, 2]);
 
+bombNumbers([1, 4, 4, 2, 8, 9, 1],[9, 3]);
 
+bombNumbers([1, 7, 7, 1, 2, 3],[7, 1]);
 
-bombNumbers([1, 2, 2, 4, 2, 2, 2, 9],
-    [4, 2]);
-
-
-bombNumbers([1, 4, 4, 2, 8, 9,
-    1],
-    [9, 3]);
-
-bombNumbers([1, 1, 2, 1, 1, 1,
-    2, 1, 1, 1],
-    [2, 1]);
+bombNumbers([1, 1, 2, 1, 1, 1, 2, 1, 1, 1],[2, 1]);
