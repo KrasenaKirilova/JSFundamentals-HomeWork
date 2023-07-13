@@ -1,7 +1,7 @@
 function solve(input) {
     let wordsArr = input.split(' ').map(x => x.toLowerCase());
     let wordsObject = {};
-    let counter = 0;
+    //let counter = 0;
 
     for (const word of wordsArr) {
         if (!wordsObject.hasOwnProperty(word)) {
