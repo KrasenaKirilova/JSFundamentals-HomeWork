@@ -27,7 +27,7 @@ function solve(input) {
                     //listNames.indexOf(name1) = tokens[0];
                     count++;
                     console.log(`${name1} was blacklisted.`);
-                    listNames
+                    // listNames
                 } else {
                     console.log(`${name1} was not found.`);
                 }
