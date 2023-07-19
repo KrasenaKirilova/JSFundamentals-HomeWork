@@ -38,18 +38,9 @@ function solve(input) {
     for (const [name, cards] of players) {
         let sumOfCards = 0;
 
-
-        // for (const card of cards) {
-        //     const powerValue = power[card.charAt(0)];
-        //     const multiplierValue = multiplier[card.charAt(1)];
-        //     const cardValue = powerValue * multiplierValue;
-        //     sumOfCards += cardValue;
-        // }
-
-
         for (const card of cards) {
-            const powerValue = power[card.slice(0, -1)];
-            const multiplierValue = multiplier[card.slice(-1)];
+            const powerValue = power[card.slice(0, -1)]; //взема поредния елемент, без последния
+            const multiplierValue = multiplier[card.slice(-1)]; //взема последния
             const cardValue = powerValue * multiplierValue;
             sumOfCards += cardValue;
         }
