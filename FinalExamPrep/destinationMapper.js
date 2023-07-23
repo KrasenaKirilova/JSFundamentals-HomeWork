@@ -1,5 +1,6 @@
 function solve(input) {
-    let regex = /[=|\/][A-Z][a-z]{2,}[=|\/]/gm;
+    //let regex = /[=|\/][A-Z]{1}[A-Za-z]{2,}[=|\/]/gm;
+    let regex = /([=/])(?<word1>[A-Z]{1}[A-Za-z]{2,})\1/gm;
     let destinations = [];
     let points = 0;
 
