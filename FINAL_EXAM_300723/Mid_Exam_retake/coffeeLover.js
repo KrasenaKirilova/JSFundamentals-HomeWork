@@ -27,13 +27,26 @@ function solve(input) {
                     break;
                 } else {
                     if (typeOfRemove === "first") {
-                        //allCoffees.slice(coffeeNum);
                         allCoffees.splice(coffeeNum - 1, 1);
                         console.log(allCoffees);
                     }
                 }
             }
                 break;
+                case "Prefer": {
+                    let firstIndex = Number(command[1]);
+                    let secondIndex = Number(command[2]);
+
+                    if (firstIndex < 0 && secondIndex > command.length) {
+                        break;
+                    } else {
+                        let coffe1 = allCoffees[firstIndex];
+                        let coffe2 = allCoffees[secondIndex];
+                       // allCoffees.slice(coffe2);
+                        
+                    }
+                }
+
 
         }
 
