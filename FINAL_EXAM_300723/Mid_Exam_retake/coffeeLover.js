@@ -8,14 +8,14 @@ function solve(input) {
 
     for (let i = 1; i <= nums; i++) {
         let command = input.shift().split(' ');
-        console.log(command);
+        //  console.log(command);
         let action = command[0];
 
         switch (action) {
             case "Include": {
                 let typeOfCoffee = command[1];
                 allCoffees.push(typeOfCoffee);
-                console.log(allCoffees);
+                //   console.log(allCoffees);
             }
 
                 break;
@@ -28,30 +28,36 @@ function solve(input) {
                 } else {
                     if (typeOfRemove === "first") {
                         allCoffees.splice(coffeeNum - 1, 1);
-                        console.log(allCoffees);
+                        //  console.log(allCoffees);
                     }
                 }
             }
                 break;
-                case "Prefer": {
-                    let firstIndex = Number(command[1]);
-                    let secondIndex = Number(command[2]);
+            case "Prefer": {
+                let firstIndex = Number(command[1]);
+                let secondIndex = Number(command[2]);
 
-                    if (firstIndex < 0 && secondIndex > command.length) {
-                        break;
-                    } else {
-                        let coffe1 = allCoffees[firstIndex];
-                        let coffe2 = allCoffees[secondIndex];
-                       // allCoffees.slice(coffe2);
-                        
-                    }
+                if (firstIndex < 0 && secondIndex > command.length) {
+                    break;
+                } else {
+                    let temp = allCoffees[firstIndex];
+                    allCoffees[firstIndex] = allCoffees[secondIndex];
+                    allCoffees[secondIndex] = temp
+                    //  console.log(allCoffees);
+
                 }
+            }
 
+                break;
 
+            case "Reverse": {
+                allCoffees = allCoffees.reverse();
+
+            }
         }
-
-
     }
+    console.log('Coffees:');
+    console.log(`${allCoffees.join(' ')}`);
 }
 
 
